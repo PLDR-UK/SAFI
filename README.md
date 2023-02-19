@@ -1,2 +1,2 @@
 # SAFI
-Small Area Frailty Index
+Moderate & Severe Frailty

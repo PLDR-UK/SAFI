@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Moderate & Severe Frailty</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <script type="application/javascript">document.interestCohort = null;</script>        
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css">
+        <style type="text/css">
+            #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+            .legend {
+                color: #555;
+                padding: 6px 8px;
+                font: 12px Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                background: white;
+                background: rgba(255,255,255,0.8);
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+                border-radius: 5px;
+            }
+            .legend ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                clear: both;
+            }
+            .legend li {
+                display: inline-block;
+                width: 30px;
+                height: 22px;
+            }
+            .legend .min {
+                float: left;
+                padding-bottom: 5px;
+            }
+            .legend .max {
+                float: right;
+            }
+        </style>
+	</head>
+	<body>
+		<div id="map" style="height: 100%"></div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+        <script src="lib/spin.min.js" charset="utf-8"></script>
+        <script src="lib/leaflet.spin.min.js" charset="utf-8"></script>
+		<script src="lib/choropleth.js"></script>
+		<script src="demo.js"></script>
+	</body>
+</html>
