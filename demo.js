@@ -84,9 +84,9 @@ $.getJSON('./data/safi_simple.json', function (geojson) {
   legend.addTo(map)
 
   var layers = {
-    'OpenStreetMap': layer_OSM,
+    'OSM Labels': stamenLayer,
     'Frailty Map': choroplethLayer,
-    'OSM Labels': stamenLayer
+    'OpenStreetMap': layer_OSM
 };
 
 var layersControl = L.control.layers({},
