@@ -23,7 +23,7 @@ map.spin(true);
 // Add GeoJSON
 $.getJSON('./data/safi_simple.json', function (geojson) {
   var choroplethLayer = L.choropleth(geojson, {
-    valueProperty: 'dec_efi',
+    valueProperty: 'mod_sev_pc',
     scale: ['#29B6F6','#FFF9C4', '#FF5722'],
     steps: 10,
     mode: 'q',
@@ -71,8 +71,8 @@ $.getJSON('./data/safi_simple.json', function (geojson) {
 
     // Add min & max
     div.innerHTML = '<div class="title"> Legend </div>'
-    div.innerHTML = '<div class="labels"><div class="min">' + limits[0] +': Low' + '</div> \
-			<div class="max">' + 'High :'+limits[limits.length - 1] + '</div></div>'
+    div.innerHTML = '<div class="labels"><div class="min">' + limits[0] +'% - - - Moderate & Severe Frailty patients - - -' + '</div> \
+			<div class="max">' + limits[limits.length - 1] + '%</div></div>'
 
     limits.forEach(function (limit, index) {
       labels.push('<li style="background-color: ' + colors[index] + '"></li>')
@@ -83,10 +83,21 @@ $.getJSON('./data/safi_simple.json', function (geojson) {
   }
   legend.addTo(map)
 
+  // Add mtitle (don't forget to add the CSS from index.html)
+  var mtitle = L.control({ position: 'topleft' })
+  mtitle.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info map title')
+    var labels = []
+    div.innerHTML = '<div class="mtitle"> Small Area Frailty Indicator (SAFI) </div>'
+    return div
+  }
+  mtitle.addTo(map)
+
+
   var layers = {
-    'OSM Labels': stamenLayer,
+    'OpenStreetMap': layer_OSM,
     'Frailty Map': choroplethLayer,
-    'OpenStreetMap': layer_OSM
+    'OSM Labels': stamenLayer
 };
 
 var layersControl = L.control.layers({},
